@@ -12,7 +12,7 @@ AddEventHandler('esx_slotmachine:sv:1', function(amount,a,b,c)
 		-- xPlayer.removeAccountMoney('black_money', (amount))
 		TriggerClientEvent("esx_slotmachine:1",source,tonumber(amount),tostring(a),tostring(b),tostring(c))
 	else
-		TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "^1Not enough money in wallet!^0")
+		TriggerClientEvent('esx:showNotification', source, "~r~Not enough money in your wallet~s~")
 	end
 end)
 
@@ -22,5 +22,5 @@ AddEventHandler('esx_slotmachine:sv:2', function(amount)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	    xPlayer.addMoney(amount)
 	    -- xPlayer.addAccountMoney('black_money', (amount))
-	    TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "YOU WON!: " .. amount .. "$.")
+	    TriggerClientEvent('esx:showNotification', source, "~g~You WON!:~s~ " .. amount .. "$.")
 	end)
